@@ -68,9 +68,9 @@ export default function ContinueWatching({ className }: ContinueWatchingProps) {
     return unsubscribe;
   }, []);
 
-  // 如果没有播放记录，则不渲染组件
+  // 如果没有播放记录，则不渲染组件（但保留事件监听）
   if (!loading && playRecords.length === 0) {
-    return null;
+    return <div className={`mb-8 ${className || ''}`} />;
   }
 
   // 计算播放进度百分比
